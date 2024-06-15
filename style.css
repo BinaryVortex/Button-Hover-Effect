@@ -1,0 +1,304 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #cdf5f698;
+    height: 100vh;
+    margin: 0;
+}
+
+.type-A{
+    --line-color:#000;
+    --back-color:#adf196;
+}
+
+.type-B{
+    --line-color:#000;
+    --back-color:#f6c9c9;
+}
+.type-C{
+    --line-color:#000;
+    --back-color:#e6b8f9;
+}
+
+.contaner{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn{
+    position: relative;
+    z-index: 0;
+    width: 240px;
+    height: 56px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--line-color);
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn:not(:last-child){
+    margin-bottom: 64px;
+}
+
+.btn-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.btn::before,
+.btn::after,
+.btn-text::before,
+.btn-text::after{
+    content: '';
+    position: absolute;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--line-color);
+    transition: all 0.5s ease;
+}
+
+.btn::before{
+    top: 0;
+    left: 54px;
+    width: calc(100% - 56px * 2 - 16px);
+}
+
+.btn::after{
+    top: 0;
+    right: 54px;
+    width: 8px;
+}
+
+.btn-text::before{
+    bottom: 0;
+    right: 54px;
+    width: calc(100% - 56px * 2 - 16px);
+}
+
+.btn-text::after{
+    bottom: 0;
+    left: 54px;
+    width: 8px;
+}
+
+.btn-line{
+    position: absolute;
+    top: 0;
+    width: 56px;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.btn-line::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 300px;
+    border: solid 3px  var(--line-color);
+}
+
+.btn-line:nth-child(1),
+.btn-line:nth-child(1)::before{
+    left: 0;
+}
+
+.btn-line:nth-child(2),
+.btn-line:nth-child(2)::before{
+    right: 0;
+}
+
+.btn:hover{
+    letter-spacing: 6px;
+}
+
+.btn:hover::before,
+.btn:hover .btn-text::before{
+    width: 8px;
+}
+
+.btn:hover::after,
+.btn:hover .btn-text::after{
+    width: calc(100% - 56px * 2 - 16px);
+}
+
+.btn-drow1,
+.btn-drow2{
+    position: absolute;
+    z-index: -1;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+}
+
+.btn-drow1{
+    top: -16px;
+    left: 40px;
+    width: 32px;
+    height: 0;
+    transform: rotate(30deg);
+}
+
+.btn-drow2{
+    top: 44px;
+    left: 77px;
+    width: 32px;
+    height: 0;
+    transform: rotate(-127deg);
+}
+
+.btn-drow1::before,
+.btn-drow1::after,
+.btn-drow2::before,
+.btn-drow2::after{
+    content: "";
+    position: absolute;
+}
+
+.btn-drow1::before{
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 32px;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+    transform: rotate(-60deg);
+}
+
+.btn-drow1::after{
+    top: -10px;
+    left: 45px;
+    width: 0;
+    height: 32px;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+    transform: rotate(69deg);
+}
+
+.btn-drow2::before{
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 32px;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+    transform: rotate(-146deg);}
+
+
+.btn-drow2::after{
+   bottom: 26px;
+    left: -40px;
+    width: 0;
+    height: 32px;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+    transform: rotate(-262deg);
+}
+
+.btn-drow1,
+.btn-drow1::before,
+.btn-drow1::after,
+.btn-drow2,
+.btn-drow2::before,
+.btn-drow2::after{
+    background: var(--back-color);
+}
+
+.btn:hover .btn-drow1{
+    animation: drow1 ease-in 0.06s;
+    animation-fill-mode: forwards;
+}
+
+.btn:hover .btn-drow1::before{
+    animation: drow2 linear 0.08s 0.06s;
+    animation-fill-mode: forwards;
+}
+
+.btn:hover .btn-drow1::after{
+    animation: drow3 linear 0.03s 0.14s;
+    animation-fill-mode: forwards;
+}
+
+.btn:hover .btn-drow2{
+    animation: drow4 linear 0.06s 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.btn:hover .btn-drow2::before{
+    animation: drow3 linear 0.03s 0.26s;
+    animation-fill-mode: forwards;
+  }
+
+.btn:hover .btn-drow2::after{
+    animation: drow5 linear 0.06s 0.32s;
+    animation-fill-mode: forwards;;
+}
+
+@keyframes drow1 {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 100px;
+    }
+  }
+  @keyframes drow2 {
+    0% {
+      width: 0;
+      opacity: 0;
+    }
+    10% {
+      opacity: 0;
+    }
+    11% {
+      opacity: 1;
+    }
+    100% {
+      width: 120px;
+    }
+  }
+  @keyframes drow3 {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 80px;
+    }
+  }
+  @keyframes drow4 {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 120px;
+    }
+  }
+
+  @keyframes drow5{
+    0% {
+        width: 0;
+    }
+
+    100%{
+        width: 124px;
+    }
+  }
+  
